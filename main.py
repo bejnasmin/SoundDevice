@@ -1,4 +1,5 @@
 import sounddevice as sd
+from scipy.io.wavfile import write
 
 duration = 10
 sample_rate = 44100
@@ -13,4 +14,6 @@ recording = sd.rec(
 )
 
 sd.wait()
+write("recording.wav", sample_rate, recording)
+
 print("Recording has finished.")
